@@ -14,9 +14,10 @@ app = Flask(__name__)
 # ==============================
 # ตั้งค่า (เปลี่ยนค่าตรงนี้)
 # ==============================
-LINE_CHANNEL_ACCESS_TOKEN = 'mb9WbYfhey8x44zfB5sI9yq0VA/6rSuYBPOq0i74u+wJAxDv6VnDhvdq+QT3M/S4iG55fBAfULR6ievSxCPc7xF9oCjRbpbG06JMcEnDgrOOz4bBSDto2XWrY0h8ZjRDsnJxy7wk04qO74tbH6ONmQdB04t89/1O/w1cDnyilFU='
-LINE_CHANNEL_SECRET       = '04364d65b85f4a9d6a85c063f2c7279a'
-GEMINI_API_KEY            = 'AQ.Ab8RN6J0svHm0UAuL5dNfDpteW-GSlzGbhGJIsPVEQLQ3qpvYw'
+import os
+LINE_CHANNEL_ACCESS_TOKEN = os.environ.get('LINE_CHANNEL_ACCESS_TOKEN')
+LINE_CHANNEL_SECRET       = os.environ.get('LINE_CHANNEL_SECRET')
+GEMINI_API_KEY            = os.environ.get('GEMINI_API_KEY')
 
 line_bot_api = LineBotApi(LINE_CHANNEL_ACCESS_TOKEN)
 handler      = WebhookHandler(LINE_CHANNEL_SECRET)
